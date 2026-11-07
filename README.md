@@ -334,3 +334,144 @@ As an administrator, I want to manage expense categories so that expenses are pr
 Acceptance criteria:
 - I can create categories.
 - I can update categories.
+- I can deactivate categories.
+
+### US-11: Manage Budgets
+As an administrator, I want to manage budgets so that I can monitor company spending.
+
+Acceptance criteria:
+- I can create budgets.
+- I can define budget periods.
+- I can view approved spending.
+- I can view remaining budget.
+
+### US-12: View Financial Reports
+As an administrator, I want to view financial reports so that I can monitor company expenses.
+
+Acceptance criteria:
+- I can filter by date.
+- I can filter by category.
+- I can view spending totals.
+- I can view expense status summaries.
+
+### US-13: View Audit Logs
+As an administrator, I want to view audit logs so that I can investigate important system activities.
+
+Acceptance criteria:
+- I can view the user responsible for an action.
+- I can view the action performed.
+- I can view the affected record.
+- I can view the timestamp.
+
+### US-14: View Dashboard
+As an administrator, I want to view a dashboard so that I can understand the organization's financial activity.
+
+Acceptance criteria:
+- I can view total expenses.
+- I can view pending approvals.
+- I can view approved and rejected expenses.
+- I can view budget utilization.
+- I can view recent activities.
+
+# 7. Expense Status Workflow
+
+An expense can have the following statuses:
+
+- Pending Manager Approval
+- Pending Administrator Approval
+- Approved
+- Rejected
+
+Possible transitions:
+
+- Pending Manager Approval → Pending Administrator Approval
+- Pending Manager Approval → Approved
+- Pending Manager Approval → Rejected
+- Pending Administrator Approval → Approved
+- Pending Administrator Approval → Rejected
+
+Approved and rejected expenses are final in version 1.0.
+
+# 8. Non-Functional Requirements
+
+## Security
+- Enforce backend authorization.
+- Secure password storage.
+- Validate uploaded files.
+- Protect against unauthorized data access.
+- Keep sensitive configuration outside source code.
+
+## Performance
+- Use database indexes where appropriate.
+- Implement pagination for expense listings.
+- Avoid unnecessary database queries.
+- Optimize report queries.
+
+## Reliability
+- Use database transactions for critical operations.
+- Prevent duplicate approval actions.
+- Log application errors.
+- Handle failed notification delivery gracefully.
+
+## Maintainability
+- Follow Django conventions.
+- Separate business logic from API views.
+- Use reusable components.
+- Write automated tests.
+
+## Data Integrity
+- Validate expense amounts.
+- Preserve approval history.
+- Maintain accurate budget calculations.
+- Prevent unauthorized changes to finalized expenses.
+
+# 9. Technology Stack
+
+| Component | Technology |
+|---|---|
+| Language | Python |
+| Backend | Django |
+| API | Django REST Framework |
+| Database | PostgreSQL |
+| ORM | Django ORM |
+| Authentication | Django Authentication |
+| File Storage | Local storage initially |
+| Testing | pytest / Django Test Framework |
+| Version Control | Git and GitHub |
+| Deployment | Docker and cloud hosting |
+
+# 10. Out of Scope — Version 1.0
+
+To keep development manageable, these features will not be implemented initially:
+
+- Actual bank transfers and reimbursements.
+- Subscription and billing management.
+- External accounting integrations.
+- Mobile applications.
+- AI-powered receipt processing.
+- Microservices.
+- Complex configurable workflow engines.
+- External email and SMS notifications.
+
+# 11. Definition of Done
+
+EnterpriseFlow v1.0 is complete when:
+
+1. Employees can register and authenticate.
+2. Role-based permissions work correctly.
+3. Employees can submit expenses and receipts.
+4. Managers can approve and reject expenses.
+5. Multi-level approvals work based on expense amount.
+6. Categories and budgets can be managed.
+7. Financial reports produce accurate results.
+8. Audit logs record important activities.
+9. In-app notifications work.
+10. Administrative dashboard APIs return accurate data.
+11. Automated tests cover core workflows and security rules.
+12. The application is deployed and accessible.
+
+---
+
+**Final Product Goal:**
+
+Build a maintainable Django expense management platform that demonstrates real-world backend engineering, database design, business logic, security, testing, and deployment capabilities.
